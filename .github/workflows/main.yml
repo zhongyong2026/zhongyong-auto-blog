@@ -2,8 +2,8 @@ name: Zhongyong Auto Post
 
 on:
   schedule:
-    - cron: '0 0 * * 1,3,5'
-  workflow_dispatch:
+    - cron: '0 0 * * 1,3,5' # 월, 수, 금 한국 시간 오전 9시
+  workflow_dispatch: # 수동 실행 버튼
 
 jobs:
   run-bot:
@@ -18,9 +18,9 @@ jobs:
         run: pip install google-genai
       - name: Run Auto Post
         env:
-          # ⚠️ 여기 이름들과 깃허브 Secrets 이름이 토씨 하나 안 틀리고 같아야 합니다!
-          GEMINI_API_KEY: ${{ AIzaSyDvb_uUtIeqNCIg1ImA58VPjy4463MNUtE }}
-          EMAIL_USER: ${{ author@zhongyong-admin.com }}
-          EMAIL_PASSWORD: ${{ roy@26042505 }}
-          EMAIL_RECIPIENT: ${{ author@zhongyong-admin.com }}
+          # ⚠️ 아래 형식을 그대로 유지하세요. 깃허브가 금고에서 알아서 꺼내옵니다.
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          EMAIL_RECIPIENT: ${{ secrets.EMAIL_RECIPIENT }}
         run: python auto_post.py
