@@ -10,14 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Python Setup
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12' # 최신 버전으로 업그레이드
+          python-version: '3.12'
       - name: Install AI Library
-        run: pip install google-genai # 최신 패키지 설치
+        run: pip install google-genai
       - name: Run Auto Post
         env:
+          # ⚠️ 여기 이름들과 깃허브 Secrets 이름이 토씨 하나 안 틀리고 같아야 합니다!
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
