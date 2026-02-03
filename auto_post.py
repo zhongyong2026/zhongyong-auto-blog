@@ -37,11 +37,10 @@ try:
     msg['To'] = RECIPIENT
     msg.attach(MIMEText(content_html, 'html'))
 
-    with smtplib.SMTP_SSL('smtp.hiworks.com', 465) as server:
-        server.login(EMAIL_USER, EMAIL_PASS)
-        server.sendmail(EMAIL_USER, RECIPIENT, msg.as_string())
-        
-    print("✅ 성공: 하이웍스로 원고를 보냈습니다!")
+    with smtplib.SMTP_SSL('smtp.naver.com', 465) as server:
+    server.login(EMAIL_USER, EMAIL_PASS)
+    server.sendmail(EMAIL_USER, RECIPIENT, msg.as_string())
+print("✅ 성공: 네이버 메일로 원고를 보냈습니다!")
 
 except Exception as e:
     # 404나 429 등 에러 발생 시 상세 원인 출력
