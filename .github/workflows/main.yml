@@ -19,8 +19,8 @@ jobs:
       - name: Run Auto Post
         env:
           # ⚠️ 여기 이름들과 깃허브 Secrets 이름이 토씨 하나 안 틀리고 같아야 합니다!
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          EMAIL_USER: ${{ secrets.EMAIL_USER }}
-          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-          EMAIL_RECIPIENT: ${{ secrets.EMAIL_RECIPIENT }}
+          GEMINI_API_KEY: ${{ AIzaSyDvb_uUtIeqNCIg1ImA58VPjy4463MNUtE }}
+          EMAIL_USER: ${{ author@zhongyong-admin.com }}
+          EMAIL_PASSWORD: ${{ roy@26042505 }}
+          EMAIL_RECIPIENT: ${{ author@zhongyong-admin.com }}
         run: python auto_post.py
