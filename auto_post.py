@@ -21,7 +21,7 @@ try:
     # 2. AI 원고 생성
     client = genai.Client(api_key=GOOGLE_API_KEY)
     response = client.models.generate_content(
-        model="gemini-2.0-flash",
+        model="gemini-1.5-flash",
         contents="중용행정사사무소 블로그를 위한 상위 노출용 [2026년 최신 식약처/환경부 인허가] 전문 원고를 HTML 형태로 상세하게 작성해줘."
     )
     content_html = response.text
